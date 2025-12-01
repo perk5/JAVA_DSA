@@ -30,6 +30,6 @@ class CountingNodes{
         node3.next = node4;
         node4.next = node5;
 
-        System.out.println(head.countNodes(head));
+        System.out.println("You have " + head.countNodes(head) + " Nodes...");
     }
 }
