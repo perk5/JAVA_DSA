@@ -34,7 +34,21 @@ class MeraList{
         return "Not found";
     }
 
+    //Inserting Values...
+    void insertValue(int index, Object value){
+        if (n == size){
+             _resize(size * 2);
+        }
+        
+        dynamicArray.add(null); 
 
+        for(int i = n; i > index ; i--){
+            dynamicArray.set(i, dynamicArray.get(i - 1));
+        }
+        dynamicArray.set(index, value);
+        n = n + 1;
+        // dynamicArray = newArray;
+    }
 
     // Adding Items...
     void addItem(Object item){
@@ -44,6 +58,16 @@ class MeraList{
 
         dynamicArray.add(item);
         n = n + 1;
+    }
+
+    //Deleting Items from Array
+    void deleteItem(int item){        
+        for(int i = item; i < n - 1 ; i++){
+            dynamicArray.set(i, dynamicArray.get(i + 1));
+        }
+
+        dynamicArray.remove(n - 1);
+        n = n - 1;    
     }
 
     // Resizing Array...
@@ -79,7 +103,16 @@ public class DynamicArrays {
         m1.addItem(1);
         m1.addItem("Hello4");
         m1.addItem("Hello5");
+        System.out.println(m1.dynamicArray);
         System.out.println(m1.totalLength());
-        System.out.println(m1.Getindex("Hell")); 
+        System.out.println(m1.Getindex("Hell"));
+        System.out.println(m1.size);
+        // m1.insertValue(1, "newValue");
+        m1.insertValue(3, "World");
+        System.out.println(m1.dynamicArray);
+        m1.deleteItem(55);
+        System.out.println(m1.dynamicArray);
+         m1.deleteItem(55);
+        System.out.println(m1.dynamicArray);
     }
 }
