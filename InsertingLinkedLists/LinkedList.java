@@ -47,6 +47,20 @@ class CreateLinkedList{
         n++;
     }
 
+    void insertItem(int index, int value){
+        Node new_node = new Node(value);
+        Node current = head;
+        for(int i = 0; i < n; i++){
+            if (i == index - 1){
+                new_node.next = current.next;
+                current.next = new_node;
+                n++;
+            }else{
+                current = current.next;
+            }
+        }
+    }
+
     String traverse(){
 
         if (head == null) {
@@ -69,7 +83,6 @@ class CreateLinkedList{
 public class LinkedList {
     public static void main(String args[]){
         CreateLinkedList Linkedlist = new CreateLinkedList();
-        // Linkedlist;
         Linkedlist.insert_head(1);
         Linkedlist.insert_head(2);
         Linkedlist.insert_head(3);
@@ -77,6 +90,7 @@ public class LinkedList {
         Linkedlist.insert_head(5);
         Linkedlist.insert_head(6);
         Linkedlist.insert_newtail(7);
+        Linkedlist.insertItem(3, 50);
         System.out.println(Linkedlist.lengthOfNodes());
         System.out.println(Linkedlist.traverse());
     }
