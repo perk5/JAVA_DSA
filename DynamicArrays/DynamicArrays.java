@@ -34,6 +34,24 @@ class MeraList{
         return "Not found";
     }
 
+    //Finding Item by value
+    int findItem(Object item){
+        for (int i = 0; i < n; i++){
+            if(dynamicArray.get(i) == item){
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    //Removing Item by value
+    void removeItem(Object item){
+        int itemIndex = findItem(item);
+
+        deleteItem(itemIndex); 
+    }
+
+
     //Inserting Values...
     void insertValue(int index, Object value){
         if (n == size){
@@ -86,6 +104,19 @@ class MeraList{
         return dynamicArray;
     }
 
+    //Sorting Array
+    int MaxValue(){
+        int max = (int) dynamicArray.get(0);
+
+        for(int i = 1; i < n; i++){
+            int value = (int) dynamicArray.get(i);
+            if(value > max){
+                max = value;
+            }
+        }
+        return max;
+    }
+
     // Length of an Array...
     int totalLength(){
         return dynamicArray.size();
@@ -97,22 +128,24 @@ public class DynamicArrays {
     public static void main(String args[]){
         MeraList m1 = new MeraList (1);   
         System.out.println(m1.totalLength());
-        m1.addItem("Hello");
-        m1.addItem("Hello2");
-        m1.addItem("Hello3");
+        m1.addItem(5);
+        m1.addItem(8);
+        m1.addItem(10);
         m1.addItem(1);
-        m1.addItem("Hello4");
-        m1.addItem("Hello5");
+        m1.addItem(3);
+        m1.addItem(9);
         System.out.println(m1.dynamicArray);
         System.out.println(m1.totalLength());
-        System.out.println(m1.Getindex("Hell"));
+        // System.out.println(m1.Getindex("Hell"));
         System.out.println(m1.size);
         // m1.insertValue(1, "newValue");
-        m1.insertValue(3, "World");
+        // m1.insertValue(3, "World");
         System.out.println(m1.dynamicArray);
-        m1.deleteItem(55);
-        System.out.println(m1.dynamicArray);
-         m1.deleteItem(55);
-        System.out.println(m1.dynamicArray);
+        System.out.println(m1.MaxValue());
+        // m1.deleteItem(55);
+        // System.out.println(m1.dynamicArray);
+        // m1.deleteItem(55);
+        // m1.removeItem(1);
+        // System.out.println(m1.dynamicArray);
     }
 }
