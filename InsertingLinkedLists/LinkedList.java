@@ -14,20 +14,48 @@ class CreateLinkedList{
     Node head = null;
     int n = 0;
 
-    // CreateLinkedList(){
-    //     this.head = head;
-    //     this.n = n;
+    // int lengthOfNodes(){
+    //    return n; 
     // }
 
-    int lengthOfNodes(){
-       return n; 
-    }
+    
 
     void insert_head(int value){
         Node newNode = new Node(value);
         newNode.next = head;
         head = newNode;
         n++;
+    }
+
+    void emptyList(){
+        head = null;
+        n = 0;
+    }
+
+    void deleteFirst(){
+        if(head != null){
+            head = head.next;
+            n = n - 1;
+        }    
+        return;   
+    }
+
+    void deleteLast(){
+        Node current = head;
+
+        if (current == null){
+            return;
+        }
+
+        if (current.next == null){
+            deleteFirst();
+            return;
+        }
+        for(int i = 0; i < n - 2; i++){
+            current = current.next;
+        }
+        current.next = null;
+        n = n - 1;
     }
 
     void insert_newtail(int value){
@@ -52,8 +80,8 @@ class CreateLinkedList{
         Node current = head;
 
         if (index < 0 || index > n) {
-        return false;
-    }
+            return false;
+        }
 
         if (head == null) {
             head = new_node;
@@ -88,8 +116,6 @@ class CreateLinkedList{
         return sequence.substring(0, sequence.length() - 2);
     }
 
-
-
 }
 
 
@@ -97,14 +123,15 @@ public class LinkedList {
     public static void main(String args[]){
         CreateLinkedList Linkedlist = new CreateLinkedList();
         Linkedlist.insert_head(1);
-        Linkedlist.insert_head(2);
-        Linkedlist.insert_head(3);
-        Linkedlist.insert_head(4);
-        Linkedlist.insert_head(5);
-        Linkedlist.insert_head(6);
-        Linkedlist.insert_newtail(7);
-        System.out.println(Linkedlist.insertItem(3, 50));
-        System.out.println(Linkedlist.lengthOfNodes());
+        // Linkedlist.insert_head(2);
+        // Linkedlist.insert_head(3);
+        // Linkedlist.insert_head(4);
+        // Linkedlist.insert_head(5);
+        // Linkedlist.insert_head(6);
+        // Linkedlist.insert_newtail(7);
+        // System.out.println(Linkedlist.insertItem(3, 50));
+        // Linkedlist.deleteFirst();
+        Linkedlist.deleteLast();
         System.out.println(Linkedlist.traverse());
     }
 }
