@@ -58,6 +58,31 @@ class CreateLinkedList{
         n = n - 1;
     }
 
+    void deleteByValue(int value){
+        int index = 0;
+        Node current = head;
+        if(current.data ==  value){
+            deleteFirst();
+            return;
+        }
+        for(int i = 0; i < n; i++){
+            if (current.next.data == value){
+                index = i;
+                break;
+            }else{
+                current = current.next;
+            }
+        }  
+
+        if(current.next == null){
+            return;
+        }
+           
+        current.next = current.next.next; 
+        n = n - 1;
+    }
+
+
     void insert_newtail(int value){
         Node tailNode = new Node(value);
 
@@ -128,10 +153,11 @@ public class LinkedList {
         // Linkedlist.insert_head(4);
         // Linkedlist.insert_head(5);
         // Linkedlist.insert_head(6);
+        Linkedlist.deleteByValue(1);
         // Linkedlist.insert_newtail(7);
         // System.out.println(Linkedlist.insertItem(3, 50));
         // Linkedlist.deleteFirst();
-        Linkedlist.deleteLast();
+        // Linkedlist.deleteLast();
         System.out.println(Linkedlist.traverse());
     }
 }
