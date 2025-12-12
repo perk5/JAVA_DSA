@@ -14,12 +14,7 @@ class CreateLinkedList{
     Node head = null;
     int n = 0;
 
-    // int lengthOfNodes(){
-    //    return n; 
-    // }
-
     
-
     void insert_head(int value){
         Node newNode = new Node(value);
         newNode.next = head;
@@ -82,6 +77,20 @@ class CreateLinkedList{
         n = n - 1;
     }
 
+    int searchIndex(int value){
+        int index = 0;
+        Node current = head;
+        for(int i = 0; i < n; i++){
+            if(current.data == value){
+                index = i;
+                return index;
+            }else{
+                current = current.next;
+            }
+        }
+        return -1;
+    }
+
 
     void insert_newtail(int value){
         Node tailNode = new Node(value);
@@ -141,6 +150,37 @@ class CreateLinkedList{
         return sequence.substring(0, sequence.length() - 2);
     }
 
+    void replaceMax(int newValue){
+        Node current = head;
+        Node max = current;
+
+        for(int i = 0; i < n; i++){
+            if (current.data > max.data){
+                max = current;
+            }
+            current = current.next;  
+        }
+
+        max.data = newValue;
+    }
+
+    void addOdds(){
+        Node current = head;
+        int count = 0;
+        int addOdds = 0;
+
+        while(current != null){
+            if(count % 2 != 0){
+                addOdds += current.data;
+            }       
+            count ++; 
+            current = current.next;
+            
+        }
+
+
+        System.out.println(addOdds);
+    }
 }
 
 
@@ -148,16 +188,20 @@ public class LinkedList {
     public static void main(String args[]){
         CreateLinkedList Linkedlist = new CreateLinkedList();
         Linkedlist.insert_head(1);
-        // Linkedlist.insert_head(2);
-        // Linkedlist.insert_head(3);
-        // Linkedlist.insert_head(4);
-        // Linkedlist.insert_head(5);
-        // Linkedlist.insert_head(6);
-        Linkedlist.deleteByValue(1);
+        Linkedlist.insert_head(9);
+        Linkedlist.insert_head(8);
+        Linkedlist.insert_head(2);
+        Linkedlist.insert_head(5);
+        Linkedlist.insert_head(6);
+         Linkedlist.insert_head(10);
+        // Linkedlist.deleteByValue(1);
         // Linkedlist.insert_newtail(7);
         // System.out.println(Linkedlist.insertItem(3, 50));
         // Linkedlist.deleteFirst();
         // Linkedlist.deleteLast();
         System.out.println(Linkedlist.traverse());
+        // Linkedlist.replaceMax(22);
+        Linkedlist.addOdds();
+        // System.out.println(Linkedlist.searchIndex(22));
     }
 }
