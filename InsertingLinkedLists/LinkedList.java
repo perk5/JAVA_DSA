@@ -177,9 +177,19 @@ class CreateLinkedList{
             current = current.next;
             
         }
-
-
         System.out.println(addOdds);
+    }
+
+    void reverseList(){
+        Node prev = null;
+        Node current = head;
+        while(current != null){
+            Node next = current.next; // prev = head.next;
+            current.next = prev; // head.next = prev;
+            prev = current; //head = head.next;
+            current = next;
+        } 
+        head = prev;
     }
 }
 
@@ -188,17 +198,18 @@ public class LinkedList {
     public static void main(String args[]){
         CreateLinkedList Linkedlist = new CreateLinkedList();
         Linkedlist.insert_head(1);
-        Linkedlist.insert_head(9);
-        Linkedlist.insert_head(8);
         Linkedlist.insert_head(2);
+        Linkedlist.insert_head(3);
+        Linkedlist.insert_head(4);
         Linkedlist.insert_head(5);
-        Linkedlist.insert_head(6);
-         Linkedlist.insert_head(10);
+        // Linkedlist.insert_head(6);
+        //  Linkedlist.insert_head(10);
         // Linkedlist.deleteByValue(1);
         // Linkedlist.insert_newtail(7);
         // System.out.println(Linkedlist.insertItem(3, 50));
         // Linkedlist.deleteFirst();
         // Linkedlist.deleteLast();
+        Linkedlist.reverseList();
         System.out.println(Linkedlist.traverse());
         // Linkedlist.replaceMax(22);
         Linkedlist.addOdds();
