@@ -13,6 +13,7 @@ class StackHome{
 
     Node top = null;
     int n = 0; 
+    int lastPopped = 0;
 
     boolean emptyStack(){
         return top == null;
@@ -32,29 +33,45 @@ class StackHome{
         return -1;
     }
 
-    void pop(){
-
-        if(top == null){
-           top = null; 
-           return;
+    int pop(){
+        if(emptyStack()){
+            System.out.println("Empty List...");
+            return 0;
         }
-
-        top = top.next;
-       
-        
+        lastPopped = top.data;
+        top = top.next;  
+        n = n - 1; 
+        return top.data;  
     }
 
-    String traverse(){
+    // void undo(){
+    //     if(top.next == null){
+    //         System.out.println("Empty List...");
+    //         lastPopped = 0;
+    //         return;
+    //     }
+    //     pop();
+    // }
+    // void redo(){
+    //     if(emptyStack()){
+    //         System.out.println("Empty List...");
+    //         return;
+    //     }
+    //     insertElement(lastPopped);
+    // }
+    void traverse(){
         Node current = top;
-        String nodes= "";
-        if(top == null){
-            return "Empty List";
+        // String nodes= "";
+        if(emptyStack()){
+            System.out.println("Empty List...");
+            return;
         }
         while(current != null){
-            nodes = nodes + "[" + current.data + "]" + "->";
+            System.out.println(current.data);
+            // nodes = nodes + "[" + current.data + "]" + "->";
             current = current.next;
         }
-        return nodes.substring(0,nodes.length() - 2 );
+        // return nodes.substring(0,nodes.length() - 2 );
     }
 }
 
@@ -62,16 +79,15 @@ class Stacks{
     public static void main(){
         StackHome s = new StackHome();
        
+        s.insertElement(1);
         s.insertElement(2);
         s.insertElement(3);
         s.insertElement(4);
-        
-        System.out.println(s.peak());
-        s.pop();
-        s.pop();
-        s.pop();
-        System.out.println(s.peak());
-        // s.pop();
-        System.out.println(s.traverse());  
+        s.insertElement(5);
+      
+        s.traverse(); 
+        // s.undo();
+        // s.traverse(); 
+         
     }
 }
