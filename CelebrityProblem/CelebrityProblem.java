@@ -1,5 +1,4 @@
 package CelebrityProblem;
-import java.util.Arrays;
 
 class Node {
     int data;
@@ -82,7 +81,7 @@ public class CelebrityProblem {
                 s.insertElement(j);
             }  
         } 
-        int celeb = s.pop();
+        int celeb = s.pop(); //2
 
         for(int i = 0; i < matrix.length; i++){
             if(i != celeb){
