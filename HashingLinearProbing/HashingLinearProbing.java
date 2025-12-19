@@ -12,7 +12,7 @@ class Dictionary{
         this.data = new Integer[size];
     }
 
-    void put(String key, int value){
+    void put(String key, Integer value){
         int hash_value = this.hash_function(key);
         if(slots[hash_value] == null){
           slots[hash_value] = key;  
@@ -43,10 +43,13 @@ class Dictionary{
         }else{
             int curr_postion = hash_function(key);
             while(!key.equals(slots[hash_position])){
+                if(slots[hash_position]  == null){
+                    return -2;
+                }
                 hash_position = rehash(hash_position);
                 if(hash_position == curr_postion && !key.equals(slots[curr_postion])){
                     return -1;
-                } 
+                }   
             }
             return data[hash_position];
         }
@@ -68,9 +71,9 @@ public class HashingLinearProbing {
         Dictionary D1 = new Dictionary(3);
         // System.out.println(Arrays.toString(D1.slots));
         // System.out.println(Arrays.toString(D1.data));
-        D1.put("Python", 45);
+        D1.put("Php", 45);
         D1.put("Java", 25);
-        D1.put("php", 35);
+        // D1.put("Php", 32);
         System.out.println(Arrays.toString(D1.slots));
         System.out.println(Arrays.toString(D1.data));
         System.out.println((D1.getData("Java")));
