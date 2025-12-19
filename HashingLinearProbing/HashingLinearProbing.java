@@ -36,6 +36,22 @@ class Dictionary{
         return;
     }
 
+    int getData(String key){
+        int hash_position = hash_function(key);
+        if(key.equals(slots[hash_position])){
+            return data[hash_position];
+        }else{
+            int curr_postion = hash_function(key);
+            while(!key.equals(slots[hash_position])){
+                hash_position = rehash(hash_position);
+                if(hash_position == curr_postion && !key.equals(slots[curr_postion])){
+                    return -1;
+                } 
+            }
+            return data[hash_position];
+        }
+    }
+
 
     int rehash(int oldHash){
         return (oldHash + 1) % size;
@@ -53,11 +69,12 @@ public class HashingLinearProbing {
         // System.out.println(Arrays.toString(D1.slots));
         // System.out.println(Arrays.toString(D1.data));
         D1.put("Python", 45);
-        D1.put("Java", 45);
-        D1.put("php", 45);
-        D1.put("pp", 48);
+        D1.put("Java", 25);
+        D1.put("php", 35);
         System.out.println(Arrays.toString(D1.slots));
         System.out.println(Arrays.toString(D1.data));
+        System.out.println((D1.getData("Java")));
+        
         // D1.put("Java", 45);
         // System.out.println(Arrays.toString(D1.slots));
         // System.out.println(Arrays.toString(D1.data));
