@@ -63,6 +63,14 @@ class Dictionary{
     int hash_function(String key){
         return Math.abs(key.hashCode()) % size;
     }
+
+    String display(){
+        String s = " ";
+        for(int i = 0; i < size; i++){
+            s = s + slots[i] + " : " + data[i] + ", ";
+        }
+        return "{" + s + "}";
+    }
 }
 
 
@@ -73,11 +81,11 @@ public class HashingLinearProbing {
         // System.out.println(Arrays.toString(D1.data));
         D1.put("Php", 45);
         D1.put("Java", 25);
-        // D1.put("Php", 32);
+        D1.put("Php", 32);
         System.out.println(Arrays.toString(D1.slots));
         System.out.println(Arrays.toString(D1.data));
         System.out.println((D1.getData("Java")));
-        
+        System.out.println((D1.display()));
         // D1.put("Java", 45);
         // System.out.println(Arrays.toString(D1.slots));
         // System.out.println(Arrays.toString(D1.data));
