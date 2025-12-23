@@ -110,6 +110,23 @@ class Dictionary{
         return parent; 
     }
 
+    void get_item(String key){
+
+        int bucket_index = hash_function(key);
+        if(buckets.get(bucket_index).search(key) != -1){
+            int response = this.get_node_index(bucket_index, key);
+            Node n = buckets.get(bucket_index).get_node(response);
+            System.out.println(n.value);
+
+
+        }else{
+            System.out.println("Not Found...");
+        }
+        // for(int i = 0; i < buckets.size(); i++){
+
+        // }
+    }
+
     void put(String key, int value){
 
         int bucket_index = hash_function(key);
@@ -132,7 +149,7 @@ class Dictionary{
         return;
     }
 
-    int get_node_index(int bucket_index,String key){
+    int get_node_index(int bucket_index, String key){
         int node_index = buckets.get(bucket_index).search(key);
 
         return node_index;
@@ -174,24 +191,26 @@ public class HashingClosedAddressing {
         Dictionary D1 = new Dictionary(4);
 
         D1.put("Python", 34);
-        D1.put("Java", 33);
-        D1.put("JavaScript", 33);
+        D1.put("Java", 31);
+        D1.put("JavaScript", 32);
+        
         D1.put("Php", 33);
-        D1.put("Javaa", 23);
-        D1.put("Ruby", 33);
-        D1.put("Rails", 33);
-        D1.put("C", 23);
-        D1.put("Pythonn", 34);
-        D1.put("Javaaa", 33);
-        D1.put("JavaScripta", 33);
-        D1.put("Phpa", 33);
-        D1.put("Javaaaa", 23);
-        D1.put("Rubya", 33);
-        D1.put("Railsa", 33);
-        D1.put("Javaaaaa", 23);
+        D1.get_item("pp");
+        // D1.put("Javaa", 23);
+        // D1.put("Ruby", 33);
+        // D1.put("Rails", 33);
+        // D1.put("C", 23);
+        // D1.put("Pythonn", 34);
+        // D1.put("Javaaa", 33);
+        // D1.put("JavaScripta", 33);
+        // D1.put("Phpa", 33);
+        // D1.put("Javaaaa", 23);
+        // D1.put("Rubya", 33);
+        // D1.put("Railsa", 33);
+        // D1.put("Javaaaaa", 23);
         // D1.put("Rubyaa", 33);
         // D1.put("Railsaa", 33);
         
-        System.out.println(D1.buckets.size());
+        // System.out.println(D1.buckets.size());
     }
 }
