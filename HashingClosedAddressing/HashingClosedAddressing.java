@@ -115,6 +115,7 @@ class Dictionary{
 
         LL n = buckets.get(bucket_index);
         n.remove(key);
+        size -= 1;
     }
 
     void get_item(String key){

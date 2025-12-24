@@ -23,7 +23,6 @@ public class BinarySearch {
     public static void main(String[] args){
         Binary B1 = new Binary();
         int[] arr = {2, 6, 3, 4, 8, 9, 12, 14};
-        System.out.println(B1.search(arr, 8));
-        ;
+        System.out.println(B1.search(arr, 15));
     }
 }
