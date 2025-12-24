@@ -110,6 +110,13 @@ class Dictionary{
         return parent; 
     }
 
+    void delete(String key){
+        int bucket_index = hash_function(key);
+
+        LL n = buckets.get(bucket_index);
+        n.remove(key);
+    }
+
     void get_item(String key){
 
         int bucket_index = hash_function(key);
@@ -122,9 +129,6 @@ class Dictionary{
         }else{
             System.out.println("Not Found...");
         }
-        // for(int i = 0; i < buckets.size(); i++){
-
-        // }
     }
 
     void put(String key, int value){
@@ -195,11 +199,14 @@ public class HashingClosedAddressing {
         D1.put("JavaScript", 32);
         
         D1.put("Php", 33);
-        D1.get_item("pp");
+
+        
+        // D1.get_item("pp");
         // D1.put("Javaa", 23);
         // D1.put("Ruby", 33);
         // D1.put("Rails", 33);
         // D1.put("C", 23);
+        D1.delete("Php");
         // D1.put("Pythonn", 34);
         // D1.put("Javaaa", 33);
         // D1.put("JavaScripta", 33);
@@ -210,7 +217,7 @@ public class HashingClosedAddressing {
         // D1.put("Javaaaaa", 23);
         // D1.put("Rubyaa", 33);
         // D1.put("Railsaa", 33);
-        
+        System.out.println(D1.buckets.get(0).traverse());
         // System.out.println(D1.buckets.size());
     }
 }
