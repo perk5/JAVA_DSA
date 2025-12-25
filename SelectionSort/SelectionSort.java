@@ -12,9 +12,7 @@ class Sort{
             }
             int temp = arr[i];
             arr[i] = arr[min];
-            arr[min] = temp;
-
-           
+            arr[min] = temp;  
         }
         return arr;
     }   
