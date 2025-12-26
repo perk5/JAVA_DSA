@@ -1,49 +1,74 @@
-package MergeSort;
-import java.util.ArrayList;
+    package MergeSort;
+    import java.util.Arrays;
+    class MergeSorted{ 
+        
+        void mergeSorted(int[] arr, int l, int mid, int r){
 
-class MergeSorted{
+            int n1 = mid - l + 1;
+            int n2 = r - mid;
 
-    int i = 0;
-    int j = 0;
 
-    ArrayList<Integer> merged = new ArrayList<>();
+            int arr1[] = new int[n1];
+            int arr2[] = new int[n2];
 
-    ArrayList<Integer> mergeSorted(int[] arr1,int[] arr2){
-        while(i < arr1.length && j < arr2.length){
-            if(arr1[i] < arr2[j]){
-                merged.add(arr1[i]);
+            for(int x = 0; x < n1; x++){
+                arr1[x] = arr[l+x];
+            }
+            for(int x = 0; x < n2; x++){
+                arr2[x] = arr[mid+1+x];
+            }
+
+            int i = 0;
+            int j = 0;
+            int k = l;
+
+            while(i < n1 && j < n2){
+                if(arr1[i] < arr2[j]){
+                    arr[k] = arr1[i];
+                    i += 1;    
+                }else{
+                    arr[k] = arr2[j];
+                    j += 1;          
+                }
+                k++;
+            }
+            
+            while(i < n1){
+                arr[k] = arr1[i];
                 i += 1;
-            }else{
-                merged.add(arr2[j]);
+                k++;
+            }
+
+            while(j < n2){
+                arr[k] = arr2[j];
                 j += 1;
+                k++;
+            }
+            System.out.println(Arrays.toString(arr));
+        }
+
+        void mergeSort(int[] arr, int l , int r){
+    
+            if(l<r)
+            {
+                int mid = l + (r - l) / 2;
+
+                mergeSort(arr, l, mid);
+                mergeSort(arr, mid + 1, r);
+
+                mergeSorted(arr, l, mid, r );
             }
         }
-        
-        
-
-        while(i < arr1.length){
-            merged.add(arr1[i]);
-            j += 1;
-        }
-
-        while(j < arr2.length){
-            merged.add(arr2[j]);
-            j += 1;
-        }
-
-        System.out.println(merged);
-        return merged;
     }
 
-   
+    public class MergeSort {
 
-}
+        public static void main(String[] args){
 
-public class MergeSort {
-    public static void main(){
-        MergeSorted m1 = new MergeSorted();
-        int[] arr1 = {1, 2, 5, 6};
-        int[] arr2 = {3, 4, 7, 8, 9, 10, 11};
-        m1.mergeSorted(arr1, arr2);
+            int[] arr = {100, 4, 12, 10, 11, 8, 9, 7};
+            int l = 0;
+            int r = arr.length - 1;
+            MergeSorted m1 = new MergeSorted();
+            m1.mergeSort(arr, l, r);
+        }
     }
-}
