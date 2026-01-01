@@ -12,7 +12,7 @@ public class RMergeSort {
         }
     }
 
-    public static int[] merge(int[] data, int start, int mid, int end){
+    public static void merge(int[] data, int start, int mid, int end){
         // Building temp array to avoid modifying the original content....
 
         int[] temp = new int[end - start + 1];
@@ -43,7 +43,6 @@ public class RMergeSort {
             data[i] = temp[i - start];
         }
         System.out.println(Arrays.toString(data));
-        return data;
     }
 
 
