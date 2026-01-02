@@ -1,5 +1,6 @@
 package TwoSums;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.HashMap;
 
 public class TwoSums {
@@ -24,7 +25,7 @@ public class TwoSums {
 
         // Excellent Time Complexity...... O(n)
 
-        HashMap<Integer, Integer> array = new HashMap<>();
+        Map<Integer, Integer> array = new HashMap<>();
 
         for(int i = 0; i < arr.length; i++){
             int complement = target - arr[i];

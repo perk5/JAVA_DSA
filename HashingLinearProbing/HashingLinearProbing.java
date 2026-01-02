@@ -1,7 +1,7 @@
 package HashingLinearProbing;
 import java.util.Arrays;
-class Dictionary{
 
+class Dictionary{
     int size;
     String[] slots;
     Integer[] data;
