@@ -2,8 +2,6 @@ package Duplicate;
 import java.util.HashSet;
 import java.util.Set;
 
-
-
 public class Duplicate {
 
     public static boolean duplicate(int[] arr){
