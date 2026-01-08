@@ -23,7 +23,7 @@ public class VAlienDictionary {
                     int next = dict.get(names[i + 1].substring(j,j+ 1 ));
                     if(current > next){
                         return false;
-                    }else{
+                    }else{ 
                         break;
                     }
                 }
