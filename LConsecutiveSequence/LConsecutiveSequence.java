@@ -24,7 +24,6 @@ public class LConsecutiveSequence {
                 continue;
             }
         }
-
         return lcs;
     }
 
