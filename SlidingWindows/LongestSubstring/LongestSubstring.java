@@ -24,7 +24,7 @@ public class LongestSubstring {
     }
 
     public static void main(String args[]) {
-        String word = "pwwcew";
+        String word = "abatman";
         System.out.println(longestSubstring(word));
     }
 }
