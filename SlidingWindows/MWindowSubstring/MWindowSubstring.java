@@ -5,7 +5,12 @@ import java.util.*;
 public class MWindowSubstring {
 
     public static int minimumLength(String s, String t) {
-        int length = s.length();
+
+        // if(t.length() > s.length()){
+        //     return 0;
+        // }
+
+        int length = Integer.MAX_VALUE;
         int left = 0;
         char[] tc = t.toCharArray();
         char[] sc = s.toCharArray();
@@ -49,12 +54,12 @@ public class MWindowSubstring {
 
         }
 
-        return length;
+        return length == Integer.MAX_VALUE ? 0 : length;
     }
 
     public static void main(String args[]) {
-        String s = "avaabcabdc"; // sc
-        String t = "abc"; // tc
+        String s = "a"; // sc
+        String t = "zz"; // tc
         System.out.println(minimumLength(s, t));
     }
 }
