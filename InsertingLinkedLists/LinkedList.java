@@ -191,6 +191,30 @@ class CreateLinkedList{
         } 
         head = prev;
     }
+
+    public void swap(int data){
+        Node current = head;
+        Node x;
+        Node y;
+        Node temp;
+
+        while(current.next != null){
+            if(current.next.data == data){
+                x = current.next;
+                y = current.next.next;
+                temp = y.next;
+
+                current.next = y;
+                current.next.next = x;
+                current.next.next.next = temp;
+                return;
+            }else{
+                current = current.next;
+            }
+        }
+
+        
+    } 
 }
 
 
@@ -202,17 +226,14 @@ public class LinkedList {
         Linkedlist.insert_head(3);
         Linkedlist.insert_head(4);
         Linkedlist.insert_head(5);
-        // Linkedlist.insert_head(6);
-        //  Linkedlist.insert_head(10);
-        // Linkedlist.deleteByValue(1);
-        // Linkedlist.insert_newtail(7);
-        // System.out.println(Linkedlist.insertItem(3, 50));
-        // Linkedlist.deleteFirst();
-        // Linkedlist.deleteLast();
-        Linkedlist.reverseList();
+        Linkedlist.insert_head(6);
+        Linkedlist.insert_head(7);
+        // Linkedlist.reverseList();
+        Linkedlist.swap(6);
         System.out.println(Linkedlist.traverse());
-        // Linkedlist.replaceMax(22);
-        Linkedlist.addOdds();
+
+        // // Linkedlist.replaceMax(22);
+        // Linkedlist.addOdds();
         // System.out.println(Linkedlist.searchIndex(22));
     }
 }
